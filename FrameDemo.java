@@ -16,6 +16,11 @@ public class FrameDemo {
         jTextField1.setBounds(100,100,200,30);
         frame.add(jTextField1);
 
+        JTextArea searchTextArea = new JTextArea();
+        searchTextArea.setBounds(25,200,550,100);
+       // jScrollPane1.setViewportView(maintTextArea);
+        frame.add(searchTextArea);
+
         JLabel jSearch1 = new JLabel("Search:");
         jSearch1.setBounds(25,100,200,30);
         frame.add(jSearch1);
@@ -68,13 +73,13 @@ public class FrameDemo {
 
  c.addActionListener(new ActionListener(){
      public void actionPerformed(ActionEvent e){
-      jTextField1.setText("Oops! Error 404: Not Found");
+      searchTextArea.setText("Oops! Error 404: Not Found");
      }
    });
 
   //************************************************************************ */
   JLabel emptyLabel = new JLabel("");
-  emptyLabel.setPreferredSize(new Dimension(500, 400));
+  emptyLabel.setPreferredSize(new Dimension(600, 400));
   frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
 
        
@@ -106,7 +111,11 @@ public class FrameDemo {
         JFrame frame = new JFrame("Maintenance");
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
-        
+        JTextArea maintTextArea = new JTextArea();
+        maintTextArea.setBounds(25,75,550,200);
+       // jScrollPane1.setViewportView(maintTextArea);
+        frame.add(maintTextArea);
+
  //*********************************************************** */
         JButton maintRemoveFile = new JButton("Remove File"); //Remove File button
         maintRemoveFile.setBounds(400,300,150,30);
@@ -114,7 +123,7 @@ public class FrameDemo {
          
         maintRemoveFile.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
-            //aboutGui();
+            maintTextArea.setText("403 (Forbidden)");
           }
         });
 //*************************************************************** */
@@ -124,7 +133,7 @@ JButton maintAddFile = new JButton("Add File"); //Add File button
          
         maintAddFile.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
-            //aboutGui();
+            maintTextArea.setText("404 (Not Found)");
           }
         });
 //*************************************************************** */
@@ -134,25 +143,22 @@ JButton maintAddFile = new JButton("Add File"); //Add File button
          
         maintRebuild.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
-            //aboutGui();
+            maintTextArea.setText("401 (Unauthorized)");
           }
         });
 //*************************************************************** */
               
-        JLabel jIndex1 = new JLabel("Search Engine - Index Maintenance" );
-        jIndex1.setBounds(100,25,400,30);
-        frame.add(jIndex1);
-        jIndex1.setFont(jIndex1.getFont().deriveFont(20.0f)); 
+        JLabel maintLabel1 = new JLabel("Search Engine - Index Maintenance" );
+        maintLabel1.setBounds(100,25,400,30);
+        frame.add(maintLabel1);
+        maintLabel1.setFont(maintLabel1.getFont().deriveFont(20.0f)); 
 
-        JLabel jIndex2 = new JLabel("Indexed Files: 0" );
-        jIndex2.setBounds(225,350,200,30);
-        frame.add(jIndex2);
+        JLabel maintLabel2 = new JLabel("Indexed Files: 0" );
+        maintLabel2.setBounds(225,350,200,30);
+        frame.add(maintLabel2);
 //*********************************************************** */        
 
-        JTextArea maintTextArea = new JTextArea();
-        maintTextArea.setBounds(25,75,550,200);
-       // jScrollPane1.setViewportView(maintTextArea);
-        frame.add(maintTextArea);
+      
 
         JLabel emptyLabel = new JLabel("");
         emptyLabel.setPreferredSize(new Dimension(600, 400));
