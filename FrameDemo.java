@@ -108,8 +108,8 @@ public class FrameDemo {
  
         
  //*********************************************************** */
-        JButton maintRemoveFile = new JButton("Remove File"); //About button
-        maintRemoveFile.setBounds(400,350,150,30);
+        JButton maintRemoveFile = new JButton("Remove File"); //Remove File button
+        maintRemoveFile.setBounds(400,300,150,30);
         frame.add(maintRemoveFile);
          
         maintRemoveFile.addActionListener(new ActionListener(){
@@ -118,8 +118,8 @@ public class FrameDemo {
           }
         });
 //*************************************************************** */
-JButton maintAddFile = new JButton("Add File"); //About button
-        maintAddFile.setBounds(25,350,150,30);
+JButton maintAddFile = new JButton("Add File"); //Add File button
+        maintAddFile.setBounds(25,300,150,30);
         frame.add(maintAddFile);
          
         maintAddFile.addActionListener(new ActionListener(){
@@ -128,6 +128,30 @@ JButton maintAddFile = new JButton("Add File"); //About button
           }
         });
 //*************************************************************** */
+        JButton maintRebuild = new JButton("Rebuild Out of Date"); //Add File button
+        maintRebuild.setBounds(220,300,150,30);
+        frame.add(maintRebuild);
+         
+        maintRebuild.addActionListener(new ActionListener(){
+          public void actionPerformed(ActionEvent e){
+            //aboutGui();
+          }
+        });
+//*************************************************************** */
+              
+        JLabel jIndex1 = new JLabel("Search Engine - Index Maintenance" );
+        jIndex1.setBounds(100,25,400,30);
+        frame.add(jIndex1);
+        jIndex1.setFont(jIndex1.getFont().deriveFont(20.0f)); 
+
+        JLabel jIndex2 = new JLabel("Indexed Files: 0" );
+        jIndex2.setBounds(225,350,200,30);
+        frame.add(jIndex2);
+//*********************************************************** */        
+
+
+
+
         JLabel emptyLabel = new JLabel("");
         emptyLabel.setPreferredSize(new Dimension(600, 400));
         frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
