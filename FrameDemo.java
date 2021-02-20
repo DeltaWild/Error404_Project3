@@ -6,7 +6,7 @@ import javax.swing.*;
 public class FrameDemo {
 
   private static void searchGui() {
-    // Create and set up the window.
+    // Create and set up main window.
     JFrame frame = new JFrame("Search");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -15,7 +15,7 @@ public class FrameDemo {
     jTextField1.setBounds(100, 100, 200, 30);
     frame.add(jTextField1);
 
-    JTextArea searchTextArea = new JTextArea();
+    JTextArea searchTextArea = new JTextArea(); // return text box
     searchTextArea.setBounds(25, 200, 550, 100);
     // jScrollPane1.setViewportView(maintTextArea);
     frame.add(searchTextArea);
@@ -24,12 +24,14 @@ public class FrameDemo {
     jSearch1.setBounds(25, 100, 200, 30);
     frame.add(jSearch1);
 
-    JLabel jIndex1 = new JLabel("Indexed Files: 0");
+    JLabel jIndex1 = new JLabel("Indexed Files: 0"); // indexed file return text
     jIndex1.setBounds(225, 350, 200, 30);
     frame.add(jIndex1);
 
     // *************************************************************** */
-    JRadioButton jButton1 = new JRadioButton("All Terms"); // radio buttons
+    // radio buttons
+
+    JRadioButton jButton1 = new JRadioButton("All Terms");
     jButton1.setBounds(50, 150, 100, 30);
     frame.add(jButton1);
 
@@ -78,7 +80,7 @@ public class FrameDemo {
 
     // ************************************************************************ */
     JLabel emptyLabel = new JLabel("");
-    emptyLabel.setPreferredSize(new Dimension(600, 400));
+    emptyLabel.setPreferredSize(new Dimension(600, 400)); // Sets main serch window size
     frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
 
     // Display the window.
@@ -86,11 +88,10 @@ public class FrameDemo {
     frame.setVisible(true);
   }
 
-  private static void aboutGui() {
+  private static void aboutGui() { // About window
 
     // Create and set up the window.
     JFrame frameAbout = new JFrame("About");
-    // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     JLabel label = new JLabel("");
     label.setPreferredSize(new Dimension(400, 400));
@@ -109,9 +110,8 @@ public class FrameDemo {
   private static void maintenanceGui() {
     // Create and set up the window.
     JFrame frame = new JFrame("Maintenance");
-    // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    JTextArea maintTextArea = new JTextArea();
+    JTextArea maintTextArea = new JTextArea(); // Maintenance return text area
     maintTextArea.setBounds(25, 75, 550, 200);
     // jScrollPane1.setViewportView(maintTextArea);
     frame.add(maintTextArea);
@@ -137,7 +137,7 @@ public class FrameDemo {
       }
     });
     // *************************************************************** */
-    JButton maintRebuild = new JButton("Rebuild Out of Date"); // Add File button
+    JButton maintRebuild = new JButton("Rebuild Out of Date"); // Rebuild button
     maintRebuild.setBounds(220, 300, 150, 30);
     frame.add(maintRebuild);
 
@@ -148,18 +148,18 @@ public class FrameDemo {
     });
     // *************************************************************** */
 
-    JLabel maintLabel1 = new JLabel("Search Engine - Index Maintenance");
+    JLabel maintLabel1 = new JLabel("Search Engine - Index Maintenance"); // Title
     maintLabel1.setBounds(100, 25, 400, 30);
     frame.add(maintLabel1);
     maintLabel1.setFont(maintLabel1.getFont().deriveFont(20.0f));
 
-    JLabel maintLabel2 = new JLabel("Indexed Files: 0");
+    JLabel maintLabel2 = new JLabel("Indexed Files: 0"); // Index file count
     maintLabel2.setBounds(225, 350, 200, 30);
     frame.add(maintLabel2);
     // *********************************************************** */
 
     JLabel emptyLabel = new JLabel("");
-    emptyLabel.setPreferredSize(new Dimension(600, 400));
+    emptyLabel.setPreferredSize(new Dimension(600, 400)); // sets window size
     frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
 
     // Display the window.
