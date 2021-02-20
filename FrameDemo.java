@@ -149,8 +149,10 @@ JButton maintAddFile = new JButton("Add File"); //Add File button
         frame.add(jIndex2);
 //*********************************************************** */        
 
-
-
+        JTextArea maintTextArea = new JTextArea();
+        maintTextArea.setBounds(25,75,550,200);
+       // jScrollPane1.setViewportView(maintTextArea);
+        frame.add(maintTextArea);
 
         JLabel emptyLabel = new JLabel("");
         emptyLabel.setPreferredSize(new Dimension(600, 400));
