@@ -16,6 +16,11 @@ public class FrameDemo {
         JFrame frame = new JFrame("Search");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
+        JTextField jTextField1 = new JTextField("");
+        jTextField1.setBounds(100,100,200,30);
+        frame.add(jTextField1);
+
+
         JButton a = new JButton("About");
         a.setBounds(250,350,100,30);
         frame.add(a);
@@ -25,7 +30,7 @@ public class FrameDemo {
             aboutGui();
           }
         });
-
+//*************************************************************** */
         JButton b = new JButton("Maintenance");
         b.setBounds(50,350,150,30);
         frame.add(b);
@@ -36,10 +41,27 @@ public class FrameDemo {
             }
           });
 
-        JLabel emptyLabel = new JLabel("");
-        emptyLabel.setPreferredSize(new Dimension(400, 400));
-        frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
- 
+
+ //*********************************************************************** */
+ JButton c = new JButton("Search");
+ c.setBounds(300,100,100,30);
+ frame.add(c);
+
+ c.addActionListener(new ActionListener(){
+     public void actionPerformed(ActionEvent e){
+      jTextField1.setText("Oops! Error 404: Not Found");
+     }
+   });
+
+  //************************************************************************ */
+  JLabel emptyLabel = new JLabel("");
+  emptyLabel.setPreferredSize(new Dimension(400, 400));
+  frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
+
+
+
+
+        
         //Display the window.
         frame.pack();
         frame.setVisible(true);
