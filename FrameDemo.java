@@ -48,19 +48,30 @@ public class FrameDemo {
      
 
     private static void aboutGui() {
+        
+              
+        
         //Create and set up the window.
         JFrame frameAbout = new JFrame("About");
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
+      
+        
         JLabel emptyLabel = new JLabel("");
         emptyLabel.setPreferredSize(new Dimension(400, 400));
         frameAbout.getContentPane().add(emptyLabel, BorderLayout.CENTER);
  
+        JLabel label = new JLabel("My label");
+        label.setText("<html>     Search Engine 1.0<br>     Error404_Project3<br>     I don't know HTML  </html>");
+        frameAbout.getContentPane().add(label, BorderLayout.CENTER);
+
         //Display the window.
         frameAbout.pack();
         frameAbout.setVisible(true);
     }
  
+
+
+
     private static void maintenanceGui() {
         //Create and set up the window.
         JFrame frame = new JFrame("Maintenance");
