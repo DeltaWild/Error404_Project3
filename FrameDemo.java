@@ -86,8 +86,7 @@ public class FrameDemo {
      
 
     private static void aboutGui() {
-            
-       
+                   
         //Create and set up the window.
         JFrame frameAbout = new JFrame("About");
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -107,10 +106,32 @@ public class FrameDemo {
         JFrame frame = new JFrame("Maintenance");
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
+        
+ //*********************************************************** */
+        JButton maintRemoveFile = new JButton("Remove File"); //About button
+        maintRemoveFile.setBounds(400,350,150,30);
+        frame.add(maintRemoveFile);
+         
+        maintRemoveFile.addActionListener(new ActionListener(){
+          public void actionPerformed(ActionEvent e){
+            //aboutGui();
+          }
+        });
+//*************************************************************** */
+JButton maintAddFile = new JButton("Add File"); //About button
+        maintAddFile.setBounds(25,350,150,30);
+        frame.add(maintAddFile);
+         
+        maintAddFile.addActionListener(new ActionListener(){
+          public void actionPerformed(ActionEvent e){
+            //aboutGui();
+          }
+        });
+//*************************************************************** */
         JLabel emptyLabel = new JLabel("");
-        emptyLabel.setPreferredSize(new Dimension(400, 400));
+        emptyLabel.setPreferredSize(new Dimension(600, 400));
         frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
- 
+
         //Display the window.
         frame.pack();
         frame.setVisible(true);
