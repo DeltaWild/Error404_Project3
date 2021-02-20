@@ -10,12 +10,22 @@ public class FrameDemo {
         //Create and set up the window.
         JFrame frame = new JFrame("Search");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
 //************************************************************* */ 
-        JTextField jTextField1 = new JTextField("");
+        JTextField jTextField1 = new JTextField("");  //search box
         jTextField1.setBounds(100,100,200,30);
         frame.add(jTextField1);
 
-        JRadioButton jButton1 = new JRadioButton("All Terms");
+        JLabel jSearch1 = new JLabel("Search:");
+        jSearch1.setBounds(25,100,200,30);
+        frame.add(jSearch1);
+
+        JLabel jIndex1 = new JLabel("Indexed Files: 0" );
+        jIndex1.setBounds(225,350,200,30);
+        frame.add(jIndex1);
+
+//*************************************************************** */
+        JRadioButton jButton1 = new JRadioButton("All Terms");   //radio buttons
         jButton1.setBounds(50,150,100,30);
         frame.add(jButton1);
 
@@ -31,10 +41,9 @@ public class FrameDemo {
         buttons.add(jButton1);
         buttons.add(jButton2);
         buttons.add(jButton3);
-
 //***************************************************************** */
-        JButton a = new JButton("About");
-        a.setBounds(250,350,100,30);
+        JButton a = new JButton("About"); //About button
+        a.setBounds(375,350,100,30);
         frame.add(a);
          
         a.addActionListener(new ActionListener(){
@@ -43,8 +52,8 @@ public class FrameDemo {
           }
         });
 //*************************************************************** */
-        JButton b = new JButton("Maintenance");
-        b.setBounds(50,350,150,30);
+        JButton b = new JButton("Maintenance"); //Maintenance button
+        b.setBounds(25,350,150,30);
         frame.add(b);
 
         b.addActionListener(new ActionListener(){
@@ -52,10 +61,8 @@ public class FrameDemo {
              maintenanceGui();
             }
           });
-
-
  //*********************************************************************** */
- JButton c = new JButton("Search");
+ JButton c = new JButton("Search"); //Search Button
  c.setBounds(300,100,100,30);
  frame.add(c);
 
@@ -67,7 +74,7 @@ public class FrameDemo {
 
   //************************************************************************ */
   JLabel emptyLabel = new JLabel("");
-  emptyLabel.setPreferredSize(new Dimension(400, 400));
+  emptyLabel.setPreferredSize(new Dimension(500, 400));
   frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
 
        
@@ -115,8 +122,7 @@ public class FrameDemo {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 searchGui();
-                //aboutGui();
-               
+                               
                 
             }
         });
