@@ -98,8 +98,12 @@ public class FrameDemo {
        
         JLabel label = new JLabel("");
         label.setPreferredSize(new Dimension(400, 400));
-        label.setText("<html>     Search Engine 1.0<br>     Error404_Project3<br>     I don't know HTML  </html>");
-        frameAbout.getContentPane().add(label, BorderLayout.CENTER);
+       
+        
+        label.setText("<html>Developer names<br><br>Lauren Bartlett<p>SeanBrown<p>Briana McKenzie<br><br>Error404_Project3<br><br />https://github.com/DeltaWild/Error404_Project3.git"+
+           "<br /><br />I don't know HTML, obviously  </html>");
+
+       frameAbout.getContentPane().add(label, BorderLayout.CENTER);
 
         //Display the window.
         frameAbout.pack();
