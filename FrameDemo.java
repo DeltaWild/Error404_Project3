@@ -12,35 +12,35 @@ public class FrameDemo {
 
     // ************************************************************* */
     JTextField jTextField1 = new JTextField(""); // search box
-    jTextField1.setBounds(100, 100, 200, 30);
+    jTextField1.setBounds(100, 50, 350, 30);
     frame.add(jTextField1);
 
     JTextArea searchTextArea = new JTextArea(); // return text box
-    searchTextArea.setBounds(25, 200, 550, 100);
+    searchTextArea.setBounds(25, 150, 550, 150);
     // jScrollPane1.setViewportView(maintTextArea);
     frame.add(searchTextArea);
 
     JLabel jSearch1 = new JLabel("Search:");
-    jSearch1.setBounds(25, 100, 200, 30);
+    jSearch1.setBounds(25, 50, 100, 30);
     frame.add(jSearch1);
 
     JLabel jIndex1 = new JLabel("Indexed Files: 0"); // indexed file return text
-    jIndex1.setBounds(225, 350, 200, 30);
+    jIndex1.setBounds(250, 350, 100, 30);
     frame.add(jIndex1);
 
     // *************************************************************** */
     // radio buttons
 
     JRadioButton jButton1 = new JRadioButton("All Terms");
-    jButton1.setBounds(50, 150, 100, 30);
+    jButton1.setBounds(112, 100, 100, 50);
     frame.add(jButton1);
 
     JRadioButton jButton2 = new JRadioButton("Any Terms");
-    jButton2.setBounds(150, 150, 100, 30);
+    jButton2.setBounds(274, 100, 100, 50);
     frame.add(jButton2);
 
     JRadioButton jButton3 = new JRadioButton("Exact Term");
-    jButton3.setBounds(250, 150, 100, 30);
+    jButton3.setBounds(436, 100, 100, 50);
     frame.add(jButton3);
 
     ButtonGroup buttons = new ButtonGroup();
@@ -49,7 +49,7 @@ public class FrameDemo {
     buttons.add(jButton3);
     // ***************************************************************** */
     JButton a = new JButton("About"); // About button
-    a.setBounds(375, 350, 100, 30);
+    a.setBounds(450, 350, 125, 30);
     frame.add(a);
 
     a.addActionListener(new ActionListener() {
@@ -59,7 +59,7 @@ public class FrameDemo {
     });
     // *************************************************************** */
     JButton b = new JButton("Maintenance"); // Maintenance button
-    b.setBounds(25, 350, 150, 30);
+    b.setBounds(25, 350, 125, 30);
     frame.add(b);
 
     b.addActionListener(new ActionListener() {
@@ -69,7 +69,7 @@ public class FrameDemo {
     });
     // *********************************************************************** */
     JButton c = new JButton("Search"); // Search Button
-    c.setBounds(300, 100, 100, 30);
+    c.setBounds(475, 50, 100, 30);
     frame.add(c);
 
     c.addActionListener(new ActionListener() {
@@ -117,18 +117,8 @@ public class FrameDemo {
     frame.add(maintTextArea);
 
     // *********************************************************** */
-    JButton maintRemoveFile = new JButton("Remove File"); // Remove File button
-    maintRemoveFile.setBounds(400, 300, 150, 30);
-    frame.add(maintRemoveFile);
-
-    maintRemoveFile.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        maintTextArea.setText("403 (Forbidden)");
-      }
-    });
-    // *************************************************************** */
     JButton maintAddFile = new JButton("Add File"); // Add File button
-    maintAddFile.setBounds(25, 300, 150, 30);
+    maintAddFile.setBounds(37, 300, 150, 30);
     frame.add(maintAddFile);
 
     maintAddFile.addActionListener(new ActionListener() {
@@ -138,7 +128,7 @@ public class FrameDemo {
     });
     // *************************************************************** */
     JButton maintRebuild = new JButton("Rebuild Out of Date"); // Rebuild button
-    maintRebuild.setBounds(220, 300, 150, 30);
+    maintRebuild.setBounds(224, 300, 150, 30);
     frame.add(maintRebuild);
 
     maintRebuild.addActionListener(new ActionListener() {
@@ -147,14 +137,24 @@ public class FrameDemo {
       }
     });
     // *************************************************************** */
+    JButton maintRemoveFile = new JButton("Remove File"); // Remove File button
+    maintRemoveFile.setBounds(411, 300, 150, 30);
+    frame.add(maintRemoveFile);
+
+    maintRemoveFile.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        maintTextArea.setText("403 (Forbidden)");
+      }
+    });
+    // *************************************************************** */
 
     JLabel maintLabel1 = new JLabel("Search Engine - Index Maintenance"); // Title
-    maintLabel1.setBounds(100, 25, 400, 30);
+    maintLabel1.setBounds(125, 25, 350, 30);
     frame.add(maintLabel1);
     maintLabel1.setFont(maintLabel1.getFont().deriveFont(20.0f));
 
     JLabel maintLabel2 = new JLabel("Indexed Files: 0"); // Index file count
-    maintLabel2.setBounds(225, 350, 200, 30);
+    maintLabel2.setBounds(250, 350, 100, 30);
     frame.add(maintLabel2);
     // *********************************************************** */
 
