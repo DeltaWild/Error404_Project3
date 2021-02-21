@@ -64,36 +64,25 @@ public class SearchGUI {
         JButton aboutButton = new JButton("About"); // About button
         aboutButton.setBounds(450, 350, 125, 30);
         frame.add(aboutButton);
-
-        aboutButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                AboutGUI.aboutGui();
-            }
-        });
+        aboutButton.addActionListener(e -> AboutGUI.aboutGui());
 
         // Maintenance button
         // *************************************************************** */
         JButton maintainButton = new JButton("Maintenance"); // Maintenance button
         maintainButton.setBounds(25, 350, 125, 30);
         frame.add(maintainButton);
-
-        maintainButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                MaintenanceGUI.maintenanceGui();
-            }
-        });
+        maintainButton.addActionListener(e -> MaintenanceGUI.maintenanceGui());
 
         // Search button
         // *********************************************************************** */
         JButton searchButton = new JButton("Search"); // Search Button
         searchButton.setBounds(475, 50, 100, 30);
         frame.add(searchButton);
-
-        searchButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                searchReturn.setText("Oops! Error 404: Not Found");
-            }
-        });
+        searchButton.addActionListener(e -> {
+                    String searchBoxText = searchBox.getText();
+                    testMethod.testMethod(searchBoxText);
+                    searchReturn.setText(String.valueOf((testMethod.result)));
+                });
 
         // Empty label to set window dimensions?
         // ************************************************************************ */
