@@ -9,6 +9,8 @@ This is the main working repo for Project 3 of COP-2805C.
 ### Consistency:
 * All files will be encoded as UTF-8.
 * Line endings are LF (UNIX style).
+* UI will be designed in Java Swing.
+* Package name will be "com.error404.project3.view".
 
 ### Workflow:
 1. Goals for the project will be listed as issues in GitHub's internal issue tracker.
