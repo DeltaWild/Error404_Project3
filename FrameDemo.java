@@ -11,14 +11,14 @@ public class FrameDemo {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     // ************************************************************* */
-    JTextField jTextField1 = new JTextField(""); // search box
-    jTextField1.setBounds(100, 50, 350, 30);
-    frame.add(jTextField1);
+    JTextField searchBox = new JTextField(""); // search box
+    searchBox.setBounds(100, 50, 350, 30);
+    frame.add(searchBox);
 
-    JTextArea searchTextArea = new JTextArea(); // return text box
-    searchTextArea.setBounds(25, 150, 550, 150);
+    JTextArea searchReturn = new JTextArea(); // return text box
+    searchReturn.setBounds(25, 150, 550, 150);
     // jScrollPane1.setViewportView(maintTextArea);
-    frame.add(searchTextArea);
+    frame.add(searchReturn);
 
     JLabel jSearch1 = new JLabel("Search:");
     jSearch1.setBounds(25, 50, 100, 30);
@@ -31,50 +31,50 @@ public class FrameDemo {
     // *************************************************************** */
     // radio buttons
 
-    JRadioButton jButton1 = new JRadioButton("All Terms");
-    jButton1.setBounds(112, 100, 100, 50);
-    frame.add(jButton1);
+    JRadioButton aLLTermButton = new JRadioButton("All Terms");
+    aLLTermButton.setBounds(112, 100, 100, 50);
+    frame.add(aLLTermButton);
 
-    JRadioButton jButton2 = new JRadioButton("Any Terms");
-    jButton2.setBounds(274, 100, 100, 50);
-    frame.add(jButton2);
+    JRadioButton anyTermButton = new JRadioButton("Any Terms");
+    anyTermButton.setBounds(274, 100, 100, 50);
+    frame.add(anyTermButton);
 
-    JRadioButton jButton3 = new JRadioButton("Exact Term");
-    jButton3.setBounds(436, 100, 100, 50);
-    frame.add(jButton3);
+    JRadioButton exactTermButton = new JRadioButton("Exact Term");
+    exactTermButton.setBounds(436, 100, 100, 50);
+    frame.add(exactTermButton);
 
     ButtonGroup buttons = new ButtonGroup();
-    buttons.add(jButton1);
-    buttons.add(jButton2);
-    buttons.add(jButton3);
+    buttons.add(aLLTermButton);
+    buttons.add(anyTermButton);
+    buttons.add(exactTermButton);
     // ***************************************************************** */
-    JButton a = new JButton("About"); // About button
-    a.setBounds(450, 350, 125, 30);
-    frame.add(a);
+    JButton aboutButton = new JButton("About"); // About button
+    aboutButton.setBounds(450, 350, 125, 30);
+    frame.add(aboutButton);
 
-    a.addActionListener(new ActionListener() {
+    aboutButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         aboutGui();
       }
     });
     // *************************************************************** */
-    JButton b = new JButton("Maintenance"); // Maintenance button
-    b.setBounds(25, 350, 125, 30);
-    frame.add(b);
+    JButton maintainButton = new JButton("Maintenance"); // Maintenance button
+    maintainButton.setBounds(25, 350, 125, 30);
+    frame.add(maintainButton);
 
-    b.addActionListener(new ActionListener() {
+    maintainButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         maintenanceGui();
       }
     });
     // *********************************************************************** */
-    JButton c = new JButton("Search"); // Search Button
-    c.setBounds(475, 50, 100, 30);
-    frame.add(c);
+    JButton searchButton = new JButton("Search"); // Search Button
+    searchButton.setBounds(475, 50, 100, 30);
+    frame.add(searchButton);
 
-    c.addActionListener(new ActionListener() {
+    searchButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        searchTextArea.setText("Oops! Error 404: Not Found");
+        searchButton.setText("Oops! Error 404: Not Found");
       }
     });
 
@@ -86,6 +86,8 @@ public class FrameDemo {
     // Display the window.
     frame.pack();
     frame.setVisible(true);
+    frame.setSize(625, 450);
+    frame.setLocationRelativeTo(null); 
   }
 
   private static void aboutGui() { // About window
@@ -165,6 +167,7 @@ public class FrameDemo {
     // Display the window.
     frame.pack();
     frame.setVisible(true);
+    frame.setLocationRelativeTo(null); 
   }
 
   public static void main(String[] args) {
