@@ -11,6 +11,12 @@ public class SearchGUI {
         JFrame frame = new JFrame("Search");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        // Set application icon
+        // ************************************************************* */
+        ImageIcon error404Icon = new ImageIcon("src/main/resources/error404_icon.png");
+        if(error404Icon != null)
+            frame.setIconImage(error404Icon.getImage());
+
         // Search label and text field
         // ************************************************************* */
         JLabel searchLabel = new JLabel("Search:");
