@@ -52,9 +52,13 @@ public class MaintenanceGUI {
         frame.add(maintLabel1);
         maintLabel1.setFont(maintLabel1.getFont().deriveFont(20.0f));
 
-        JLabel maintLabel2 = new JLabel("Indexed Files: 0"); // Index file count
-        maintLabel2.setBounds(250, 350, 100, 30);
-        frame.add(maintLabel2);
+        JLabel maintIndexLabel = new JLabel("Indexed Files: "); // Index file count
+        maintIndexLabel.setBounds(250, 350, 80, 30);
+        frame.add(maintIndexLabel);
+
+        JLabel maintIndexCount = new JLabel("0"); // Index file count
+        maintIndexCount.setBounds(330, 350, 100, 30);
+        frame.add(maintIndexCount);
         // *********************************************************** */
 
         JLabel emptyLabel = new JLabel("");
