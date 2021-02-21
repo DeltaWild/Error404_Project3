@@ -12,30 +12,40 @@ public class FrameDemo {
     JFrame frame = new JFrame("Search");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    // Search label and text field
     // ************************************************************* */
+    JLabel searchLabel = new JLabel("Search:");
+    searchLabel.setBounds(25, 50, 100, 30);
+    frame.add(searchLabel);
+
     JTextField searchBox = new JTextField(""); // search box
     searchBox.setBounds(100, 50, 350, 30);
     frame.add(searchBox);
 
+    // Main results field
+    // ************************************************************* */
     JTextArea searchReturn = new JTextArea(); // return text box
     searchReturn.setBounds(25, 150, 550, 150);
     // jScrollPane1.setViewportView(maintTextArea);
     frame.add(searchReturn);
 
-    JLabel jSearch1 = new JLabel("Search:");
-    jSearch1.setBounds(25, 50, 100, 30);
-    frame.add(jSearch1);
+    // Indexed files labels
+    // ************************************************************* */
+    JLabel indexLabel = new JLabel("Indexed Files: ");
+    indexLabel.setBounds(250, 350, 80, 30);
+    frame.add(indexLabel);
 
-    JLabel jIndex1 = new JLabel("Indexed Files: 0"); // indexed file return text
-    jIndex1.setBounds(250, 350, 100, 30);
-    frame.add(jIndex1);
+    JLabel indexCount = new JLabel("0"); // indexed file return text
+    indexCount.setBounds(330, 350, 100, 30);
+    frame.add(indexCount);
 
+    // Radio buttons
     // *************************************************************** */
-    // radio buttons
 
-    JRadioButton aLLTermButton = new JRadioButton("All Terms");
-    aLLTermButton.setBounds(112, 100, 100, 50);
-    frame.add(aLLTermButton);
+    JRadioButton allTermButton = new JRadioButton("All Terms");
+    allTermButton.setBounds(112, 100, 100, 50);
+    frame.add(allTermButton);
+    allTermButton.setSelected(true); // Set default selection
 
     JRadioButton anyTermButton = new JRadioButton("Any Terms");
     anyTermButton.setBounds(274, 100, 100, 50);
@@ -46,9 +56,11 @@ public class FrameDemo {
     frame.add(exactTermButton);
 
     ButtonGroup buttons = new ButtonGroup();
-    buttons.add(aLLTermButton);
+    buttons.add(allTermButton);
     buttons.add(anyTermButton);
     buttons.add(exactTermButton);
+
+    // About button
     // ***************************************************************** */
     JButton aboutButton = new JButton("About"); // About button
     aboutButton.setBounds(450, 350, 125, 30);
@@ -59,6 +71,8 @@ public class FrameDemo {
         aboutGui();
       }
     });
+
+    // Maintenance button
     // *************************************************************** */
     JButton maintainButton = new JButton("Maintenance"); // Maintenance button
     maintainButton.setBounds(25, 350, 125, 30);
@@ -69,6 +83,8 @@ public class FrameDemo {
         maintenanceGui();
       }
     });
+
+    // Search button
     // *********************************************************************** */
     JButton searchButton = new JButton("Search"); // Search Button
     searchButton.setBounds(475, 50, 100, 30);
@@ -80,6 +96,7 @@ public class FrameDemo {
       }
     });
 
+    // Empty label to set window dimensions?
     // ************************************************************************ */
     JLabel emptyLabel = new JLabel("");
     emptyLabel.setPreferredSize(new Dimension(600, 400)); // Sets main search window size
