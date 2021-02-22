@@ -2,20 +2,39 @@ package com.error404.project3.view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class SearchGUI {
+
+    // Components
+    // ************************************************************* */
+    // Labels
+    private JLabel searchLabel;
+    private JLabel indexLabel;
+    private JLabel indexCount;
+    private JLabel emptyLabel;
+    // TextFields & TextAreas
+    static JTextField searchBox;
+    static JTextArea searchReturn;
+    // Radio buttons
+    private JRadioButton allTermButton;
+    private JRadioButton anyTermButton;
+    private JRadioButton exactTermButton;
+    private ButtonGroup buttons;
+    // Buttons
+    private JButton aboutButton;
+    private JButton maintButton;
+    private JButton searchButton;
+
     static void searchGui() {
         // Create and set up main window.
+        // ************************************************************* */
         JFrame frame = new JFrame("Search");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Set application icon
         // ************************************************************* */
         ImageIcon error404Icon = new ImageIcon("src/main/resources/error404_icon.png");
-        if(error404Icon != null)
-            frame.setIconImage(error404Icon.getImage());
+        frame.setIconImage(error404Icon.getImage());
 
         // Search label and text field
         // ************************************************************* */
@@ -45,8 +64,7 @@ public class SearchGUI {
         frame.add(indexCount);
 
         // Radio buttons
-        // *************************************************************** */
-
+        // ************************************************************* */
         JRadioButton allTermButton = new JRadioButton("All Terms");
         allTermButton.setBounds(112, 100, 100, 50);
         frame.add(allTermButton);
@@ -66,21 +84,21 @@ public class SearchGUI {
         buttons.add(exactTermButton);
 
         // About button
-        // ***************************************************************** */
+        // ************************************************************* */
         JButton aboutButton = new JButton("About"); // About button
         aboutButton.setBounds(450, 350, 125, 30);
         frame.add(aboutButton);
         aboutButton.addActionListener(e -> AboutGUI.aboutGui());
 
         // Maintenance button
-        // *************************************************************** */
-        JButton maintainButton = new JButton("Maintenance"); // Maintenance button
-        maintainButton.setBounds(25, 350, 125, 30);
-        frame.add(maintainButton);
-        maintainButton.addActionListener(e -> MaintenanceGUI.maintenanceGui());
+        // ************************************************************* */
+        JButton maintButton = new JButton("Maintenance"); // Maintenance button
+        maintButton.setBounds(25, 350, 125, 30);
+        frame.add(maintButton);
+        maintButton.addActionListener(e -> MaintenanceGUI.maintenanceGui());
 
         // Search button
-        // *********************************************************************** */
+        // ************************************************************* */
         JButton searchButton = new JButton("Search"); // Search Button
         searchButton.setBounds(475, 50, 100, 30);
         frame.add(searchButton);
@@ -91,12 +109,13 @@ public class SearchGUI {
                 });
 
         // Empty label to set window dimensions?
-        // ************************************************************************ */
+        // ************************************************************* */
         JLabel emptyLabel = new JLabel("");
         emptyLabel.setPreferredSize(new Dimension(600, 400)); // Sets main search window size
         frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
 
         // Display the window.
+        // ************************************************************* */
         frame.pack();
         frame.setVisible(true);
         frame.setSize(625, 450);
