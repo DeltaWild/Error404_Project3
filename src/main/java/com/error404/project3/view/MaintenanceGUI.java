@@ -59,6 +59,12 @@ public class MaintenanceGUI {
         JLabel maintIndexCount = new JLabel("0"); // Index file count
         maintIndexCount.setBounds(330, 350, 100, 30);
         frame.add(maintIndexCount);
+
+        // Set application icon
+        // ************************************************************* */
+        ImageIcon error404Icon = new ImageIcon("src/main/resources/error404_icon.png");
+        if(error404Icon != null)
+            frame.setIconImage(error404Icon.getImage());
         // *********************************************************** */
 
         JLabel emptyLabel = new JLabel("");
