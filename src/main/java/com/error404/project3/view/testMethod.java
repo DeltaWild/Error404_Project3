@@ -1,5 +1,6 @@
-// Tests if the proper text is printed when the user enters a search term
-// Also tests if the text is printed when the user doesn't enter a search term
+// Tests whether the user has entered a value in the search field,
+// returns a message to the results field based on comparison,
+// and displays "Success!" if the search field has been populated and a request for input if the search field is empty
 
 package com.error404.project3.view;
 
