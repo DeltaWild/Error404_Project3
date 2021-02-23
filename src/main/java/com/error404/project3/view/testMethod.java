@@ -10,10 +10,10 @@ public class testMethod {
     public static String testMethod(String searchBoxText) {
         String test = searchBoxText;
         if (!test.isEmpty()) {
-            searchBoxText = "Success!"; // Prints to the terminal window when the user enters a search term
+            searchBoxText = "Success!"; // Displays when the passed string value isn't empty
         }
         else {
-            searchBoxText = "Please enter a term in the search box."; // Prints to the terminal window when the user doesn't enter a search term
+            searchBoxText = "Please enter a term in the search box."; // Displays when the passed string value is empty //
         }
         result = searchBoxText;
         return searchBoxText;
