@@ -1,6 +1,9 @@
-// Tests whether the user has entered a value in the search field,
-// returns a message to the results field based on comparison,
-// and displays "Success!" if the search field has been populated and a request for input if the search field is empty
+/*
+Tests whether the user has entered a value in the search field,
+returns a message to the results field based on comparison.
+Displays "Success!" if the search field has been populated and
+a request for input if the search field is empty.
+*/
 
 package com.error404.project3.view;
 

@@ -4,7 +4,25 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MaintenanceGUI {
-    static void maintenanceGui() {
+
+    // Components
+    // ************************************************************* */
+    // Labels
+    private JLabel maintTitleLabel;
+    private JLabel maintIndexLabel;
+    private JLabel maintIndexCount;
+    private JLabel emptyLabel;
+    // Buttons
+    private JButton maintAddFile;
+    private JButton maintRebuild;
+    private JButton maintRemoveFile;
+    // JPanel
+    private JPanel mDTContainer;
+    // ImageIcon
+    private ImageIcon error404Icon;
+
+
+    public static void maintenanceGui() {
         // Create and set up the window.
         // ************************************************************* */
         JFrame frame = new JFrame("Maintenance");
@@ -14,38 +32,43 @@ public class MaintenanceGUI {
         ImageIcon error404Icon = new ImageIcon("src/main/resources/error404_icon.png");
         frame.setIconImage(error404Icon.getImage());
 
-        JTextArea maintTextArea = new JTextArea(); // Maintenance return text area
-        maintTextArea.setBounds(25, 75, 550, 200);
-        // jScrollPane1.setViewportView(maintTextArea);
-        frame.add(maintTextArea);
+        // Main display area
+        // ************************************************************* */
+        // Create a container to hold table
+        JPanel mDTContainer = new JPanel();
+        mDTContainer.setBounds(25, 75, 550, 200); // Set the container size and location
+        frame.add(mDTContainer);
+        // Add display table to the container
+        maintDisplayTable mDT = new maintDisplayTable();
+        mDTContainer.add(mDT);
 
         // Add file button
         // ************************************************************* */
         JButton maintAddFile = new JButton("Add File"); // Add File button
         maintAddFile.setBounds(37, 300, 150, 30);
         frame.add(maintAddFile);
-        maintAddFile.addActionListener(e -> maintTextArea.setText("404 (Not Found)"));
+        maintAddFile.addActionListener(e -> new indexMaint()); // currently stub method
 
         // Rebuild index button
         // ************************************************************* */
         JButton maintRebuild = new JButton("Rebuild Out of Date"); // Rebuild button
         maintRebuild.setBounds(224, 300, 150, 30);
         frame.add(maintRebuild);
-        maintRebuild.addActionListener(e -> maintTextArea.setText("401 (Unauthorized)"));
+        maintRebuild.addActionListener(e -> new indexMaint()); // currently stub method
 
         // Remove file button
         // ************************************************************* */
         JButton maintRemoveFile = new JButton("Remove File"); // Remove File button
         maintRemoveFile.setBounds(411, 300, 150, 30);
         frame.add(maintRemoveFile);
-        maintRemoveFile.addActionListener(e -> maintTextArea.setText("403 (Forbidden)"));
+        maintRemoveFile.addActionListener(e -> new indexMaint()); // currently stub method
 
         // Title label
         // ************************************************************* */
-        JLabel maintLabel1 = new JLabel("Search Engine - Index Maintenance"); // Title
-        maintLabel1.setBounds(125, 25, 350, 30);
-        frame.add(maintLabel1);
-        maintLabel1.setFont(maintLabel1.getFont().deriveFont(20.0f));
+        JLabel maintTitleLabel = new JLabel("Search Engine - Index Maintenance"); // Title
+        maintTitleLabel.setBounds(125, 25, 350, 30);
+        frame.add(maintTitleLabel);
+        maintTitleLabel.setFont(maintTitleLabel.getFont().deriveFont(20.0f));
 
         // Indexed files labels
         // ************************************************************* */

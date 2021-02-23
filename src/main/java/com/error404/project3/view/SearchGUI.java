@@ -24,6 +24,8 @@ public class SearchGUI {
     private JButton aboutButton;
     private JButton maintButton;
     private JButton searchButton;
+    // ImageIcon
+    private ImageIcon error404Icon;
 
     static void searchGui() {
         // Create and set up main window.
@@ -46,11 +48,11 @@ public class SearchGUI {
         searchBox.setBounds(100, 50, 350, 30);
         frame.add(searchBox);
 
-        // Main results field
+        // Main results field (this needs to be scrollable)
         // ************************************************************* */
         JTextArea searchReturn = new JTextArea(); // return text box
         searchReturn.setBounds(25, 150, 550, 150);
-        // jScrollPane1.setViewportView(maintTextArea);
+        searchReturn.setEditable(false);
         frame.add(searchReturn);
 
         // Indexed files labels

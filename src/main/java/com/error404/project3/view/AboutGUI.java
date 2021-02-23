@@ -4,6 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AboutGUI {
+
+    // Components
+    // ************************************************************* */
+    private ImageIcon error404Icon;
+    private JLabel label;
+
     static void aboutGui() {
 
         // Create and set up the window.
