@@ -24,10 +24,10 @@ public class AboutGUI {
         // Display about information
         // ************************************************************* */
         JLabel label = new JLabel();
-        label.setPreferredSize(new Dimension(400, 250));
+        //label.setPreferredSize(new Dimension(400, 250));
         // Set contents of label
         label.setText(
-                "<html><p><div style=\"color: black; font-weight: bold; font-size: 14pt;\">Developers:</div><div style=\"color: black; font-weight: normal; font-size: 12pt;\">Lauren Bartlett<br />Sean Brown<br />Brianna MacKenzie</div></p><p><div style=\"color: black; font-weight: bold; font-size: 14pt;\">Group Name:</div><div style=\"color: black; font-weight: normal; font-size: 12pt;\">Error404</div></p><p><div style=\"color: black; font-weight: bold; font-size: 14pt;\">Repositories:</div><div style=\"color: black; font-weight: normal; font-size: 12pt;\">https://github.com/DeltaWild/Error404_Project3</div></p></html>");
+                "<html><body style=\"padding-left: 15px; padding-right: 15px;\"><p><div style=\"color: black; font-weight: bold; font-size: 14pt;\">Developers:</div><div style=\"color: black; font-weight: normal; font-size: 12pt;\">Lauren Bartlett<br />Sean Brown<br />Brianna MacKenzie</div></p><p><div style=\"color: black; font-weight: bold; font-size: 14pt;\">Group Name:</div><div style=\"color: black; font-weight: normal; font-size: 12pt;\">Error404</div></p><p><div style=\"color: black; font-weight: bold; font-size: 14pt;\">Repositories:</div><div style=\"color: black; font-weight: normal; font-size: 12pt; padding-bottom: 15px;\">https://github.com/DeltaWild/Error404_Project3</div></p></html>");
 
         frameAbout.getContentPane().add(label, BorderLayout.CENTER);
 

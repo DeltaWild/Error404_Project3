@@ -5,7 +5,7 @@ public class Main {
         // Create and show application's GUI
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                SearchGUI.searchGui();
+                new SearchGUI();
             }
         });
     }

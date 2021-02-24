@@ -7,6 +7,9 @@ public class SearchGUI {
 
     // Components
     // ************************************************************* */
+    // Frames & Panels
+    private JFrame frame;
+    private JPanel sRContainer;
     // Labels
     private JLabel searchLabel;
     private JLabel indexLabel;
@@ -14,7 +17,7 @@ public class SearchGUI {
     private JLabel emptyLabel;
     // TextFields & TextAreas
     static JTextField searchBox;
-    static JTextArea searchReturn;
+    public JTextArea searchReturn;
     // Radio buttons
     private JRadioButton allTermButton;
     private JRadioButton anyTermButton;
@@ -27,7 +30,7 @@ public class SearchGUI {
     // ImageIcon
     private ImageIcon error404Icon;
 
-    static void searchGui() {
+    public SearchGUI() {
         // Create and set up main window.
         // ************************************************************* */
         JFrame frame = new JFrame("Search");
@@ -48,24 +51,23 @@ public class SearchGUI {
         searchBox.setBounds(100, 50, 350, 30);
         frame.add(searchBox);
 
-        // Main results field (this needs to be scrollable)
+        // Main results field
         // ************************************************************* */
-        
-        JPanel panel = new JPanel();
-        JScrollPane scrollBar=new JScrollPane(panel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        frame.add(scrollBar);
-        scrollBar.setBounds(25, 150, 550, 150);
-        JTextArea searchReturn = new JTextArea(); // return text box
-        //searchReturn.setBounds(25, 150, 550, 150);
+        // Create a container to hold results field
+        JPanel sRContainer = new JPanel();
+        sRContainer.setBounds(25, 150, 550, 160); // set the container size and location
+        frame.add(sRContainer);
+        // Create a ScrollPane to hold the field
+        JScrollPane scrollBar = new JScrollPane();
+        scrollBar.setPreferredSize(new Dimension(550, 156)); // set ScrollPane size
+        scrollBar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        sRContainer.add(scrollBar);
+        // Create search return field
+        JTextArea searchReturn = new JTextArea(""); // return text box
         searchReturn.setEditable(false);
-        panel.add(searchReturn);
-        
-        /*        
-        JTextArea searchReturn = new JTextArea(); // return text box
-        searchReturn.setBounds(25, 150, 550, 150);
-        searchReturn.setEditable(false);
-        frame.add(searchReturn);
-        */
+        searchReturn.setOpaque(true);
+        scrollBar.setViewportView(searchReturn); // set searchReturn to display in ScrollPane
         
         // Indexed files labels
         // ************************************************************* */
@@ -83,14 +85,38 @@ public class SearchGUI {
         allTermButton.setBounds(112, 100, 100, 50);
         frame.add(allTermButton);
         allTermButton.setSelected(true); // Set default selection
+        allTermButton.addActionListener(e -> {
+            try {
+                new searchType(); // currently stub method
+            }
+            catch (UnsupportedOperationException Exception) {
+                JOptionPane.showMessageDialog(null, "This function is not yet implemented.", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+        });
 
         JRadioButton anyTermButton = new JRadioButton("Any Terms");
         anyTermButton.setBounds(274, 100, 100, 50);
         frame.add(anyTermButton);
+        anyTermButton.addActionListener(e -> {
+            try {
+                new searchType(); // currently stub method
+            }
+            catch (UnsupportedOperationException Exception) {
+                JOptionPane.showMessageDialog(null, "This function is not yet implemented.", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+        });
 
         JRadioButton exactTermButton = new JRadioButton("Exact Term");
         exactTermButton.setBounds(436, 100, 100, 50);
         frame.add(exactTermButton);
+        exactTermButton.addActionListener(e -> {
+            try {
+                new searchType(); // currently stub method
+            }
+            catch (UnsupportedOperationException Exception) {
+                JOptionPane.showMessageDialog(null, "This function is not yet implemented.", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+        });
 
         ButtonGroup buttons = new ButtonGroup();
         buttons.add(allTermButton);
@@ -118,7 +144,7 @@ public class SearchGUI {
         frame.add(searchButton);
         searchButton.addActionListener(e -> {
                     String searchBoxText = searchBox.getText();
-                    testMethod.testMethod(searchBoxText);
+                    testMethod testing = new testMethod(searchBoxText);
                     searchReturn.setText(String.valueOf((testMethod.result)));
                 });
 

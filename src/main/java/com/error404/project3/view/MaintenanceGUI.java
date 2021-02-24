@@ -7,13 +7,15 @@ public class MaintenanceGUI {
 
     // Components
     // ************************************************************* */
+    // Frame
+    static JFrame frame;
     // Labels
     private JLabel maintTitleLabel;
     private JLabel maintIndexLabel;
     private JLabel maintIndexCount;
     private JLabel emptyLabel;
     // Buttons
-    private JButton maintAddFile;
+    static JButton maintAddFile;
     private JButton maintRebuild;
     private JButton maintRemoveFile;
     // JPanel
@@ -47,21 +49,42 @@ public class MaintenanceGUI {
         JButton maintAddFile = new JButton("Add File"); // Add File button
         maintAddFile.setBounds(37, 300, 150, 30);
         frame.add(maintAddFile);
-        maintAddFile.addActionListener(e -> new indexMaint()); // currently stub method
+        maintAddFile.addActionListener(e -> {
+            try {
+                new indexMaint(); // currently stub method
+            }
+            catch (UnsupportedOperationException Exception) {
+                JOptionPane.showMessageDialog(null, "This function is not yet implemented.", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+                });
 
         // Rebuild index button
         // ************************************************************* */
         JButton maintRebuild = new JButton("Rebuild Out of Date"); // Rebuild button
         maintRebuild.setBounds(224, 300, 150, 30);
         frame.add(maintRebuild);
-        maintRebuild.addActionListener(e -> new indexMaint()); // currently stub method
+        maintRebuild.addActionListener(e -> {
+            try {
+                new indexMaint(); // currently stub method
+            }
+            catch (UnsupportedOperationException Exception) {
+                JOptionPane.showMessageDialog(null, "This function is not yet implemented.", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+        });
 
         // Remove file button
         // ************************************************************* */
         JButton maintRemoveFile = new JButton("Remove File"); // Remove File button
         maintRemoveFile.setBounds(411, 300, 150, 30);
         frame.add(maintRemoveFile);
-        maintRemoveFile.addActionListener(e -> new indexMaint()); // currently stub method
+        maintRemoveFile.addActionListener(e -> {
+            try {
+                new indexMaint(); // currently stub method
+            }
+            catch (UnsupportedOperationException Exception) {
+                JOptionPane.showMessageDialog(null, "This function is not yet implemented.", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+        });
 
         // Title label
         // ************************************************************* */
@@ -91,5 +114,13 @@ public class MaintenanceGUI {
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+    }
+
+    static JButton getMaintAddFile() {
+        return maintAddFile;
+    }
+
+    static void setMaintAddFile(JButton maintAddFile) {
+        MaintenanceGUI.maintAddFile = maintAddFile;
     }
 }
