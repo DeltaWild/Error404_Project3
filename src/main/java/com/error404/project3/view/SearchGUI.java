@@ -50,11 +50,23 @@ public class SearchGUI {
 
         // Main results field (this needs to be scrollable)
         // ************************************************************* */
+        
+        JPanel panel = new JPanel();
+        JScrollPane scrollBar=new JScrollPane(panel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        frame.add(scrollBar);
+        scrollBar.setBounds(25, 150, 550, 150);
+        JTextArea searchReturn = new JTextArea(); // return text box
+        //searchReturn.setBounds(25, 150, 550, 150);
+        searchReturn.setEditable(false);
+        panel.add(searchReturn);
+        
+        /*        
         JTextArea searchReturn = new JTextArea(); // return text box
         searchReturn.setBounds(25, 150, 550, 150);
         searchReturn.setEditable(false);
         frame.add(searchReturn);
-
+        */
+        
         // Indexed files labels
         // ************************************************************* */
         JLabel indexLabel = new JLabel("Indexed Files: ");
