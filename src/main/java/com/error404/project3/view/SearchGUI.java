@@ -2,6 +2,8 @@ package com.error404.project3.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class SearchGUI {
 
@@ -43,23 +45,23 @@ public class SearchGUI {
 
         // Search label and text field
         // ************************************************************* */
-        JLabel searchLabel = new JLabel("Search:");
-        searchLabel.setBounds(25, 50, 100, 30);
+        JLabel searchLabel = new JLabel("Search:", SwingConstants.CENTER);
+        //searchLabel.setBounds(25, 50, 100, 30);
         frame.add(searchLabel);
 
         JTextField searchBox = new JTextField(""); // search box
-        searchBox.setBounds(100, 50, 350, 30);
+        //searchBox.setBounds(100, 50, 350, 30);
         frame.add(searchBox);
 
         // Main results field
         // ************************************************************* */
         // Create a container to hold results field
         JPanel sRContainer = new JPanel();
-        sRContainer.setBounds(25, 150, 550, 160); // set the container size and location
+        //sRContainer.setBounds(25, 150, 550, 160); // set the container size and location
         frame.add(sRContainer);
         // Create a ScrollPane to hold the field
         JScrollPane scrollBar = new JScrollPane();
-        scrollBar.setPreferredSize(new Dimension(550, 156)); // set ScrollPane size
+        //scrollBar.setPreferredSize(new Dimension(550, 156)); // set ScrollPane size
         scrollBar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         sRContainer.add(scrollBar);
@@ -72,17 +74,17 @@ public class SearchGUI {
         // Indexed files labels
         // ************************************************************* */
         JLabel indexLabel = new JLabel("Indexed Files: ");
-        indexLabel.setBounds(250, 350, 80, 30);
+        //indexLabel.setBounds(250, 350, 80, 30);
         frame.add(indexLabel);
 
         JLabel indexCount = new JLabel("0"); // indexed file return text
-        indexCount.setBounds(330, 350, 100, 30);
+        //indexCount.setBounds(330, 350, 100, 30);
         frame.add(indexCount);
 
         // Radio buttons
         // ************************************************************* */
         JRadioButton allTermButton = new JRadioButton("All Terms");
-        allTermButton.setBounds(112, 100, 100, 50);
+       // allTermButton.setBounds(112, 100, 100, 50);
         frame.add(allTermButton);
         allTermButton.setSelected(true); // Set default selection
         allTermButton.addActionListener(e -> {
@@ -95,7 +97,7 @@ public class SearchGUI {
         });
 
         JRadioButton anyTermButton = new JRadioButton("Any Terms");
-        anyTermButton.setBounds(274, 100, 100, 50);
+        //anyTermButton.setBounds(274, 100, 100, 50);
         frame.add(anyTermButton);
         anyTermButton.addActionListener(e -> {
             try {
@@ -107,7 +109,7 @@ public class SearchGUI {
         });
 
         JRadioButton exactTermButton = new JRadioButton("Exact Term");
-        exactTermButton.setBounds(436, 100, 100, 50);
+        //exactTermButton.setBounds(436, 100, 100, 50);
         frame.add(exactTermButton);
         exactTermButton.addActionListener(e -> {
             try {
@@ -126,21 +128,21 @@ public class SearchGUI {
         // About button
         // ************************************************************* */
         JButton aboutButton = new JButton("About"); // About button
-        aboutButton.setBounds(450, 350, 125, 30);
+        //aboutButton.setBounds(450, 350, 125, 30);
         frame.add(aboutButton);
         aboutButton.addActionListener(e -> AboutGUI.aboutGui());
 
         // Maintenance button
         // ************************************************************* */
         JButton maintButton = new JButton("Maintenance"); // Maintenance button
-        maintButton.setBounds(25, 350, 125, 30);
+        //maintButton.setBounds(25, 350, 125, 30);
         frame.add(maintButton);
         maintButton.addActionListener(e -> MaintenanceGUI.maintenanceGui());
 
         // Search button
         // ************************************************************* */
         JButton searchButton = new JButton("Search"); // Search Button
-        searchButton.setBounds(475, 50, 100, 30);
+       // searchButton.setBounds(475, 50, 100, 30);
         frame.add(searchButton);
         searchButton.addActionListener(e -> {
                     String searchBoxText = searchBox.getText();
@@ -148,17 +150,46 @@ public class SearchGUI {
                     searchReturn.setText(String.valueOf((testMethod.result)));
                 });
 
+        frame.addComponentListener(new ComponentAdapter() {// Let the window respond to the size change event
+            @Override
+            public void componentResized(ComponentEvent e) {
+                double fraWidth = frame.getWidth();// Get the panel width
+                double fraHeight = frame.getHeight();// Get the panel height
+
+                indexLabel.setBounds((int) Math.round((fraWidth/625)*250),(int) Math.round((fraHeight/450)*350),80,30);
+                indexCount.setBounds((int) Math.round((fraWidth/625)*250)+80,(int) Math.round((fraHeight/450)*350),100,30);
+
+                allTermButton.setBounds((int) Math.round((fraWidth*0.5)-150),(int) Math.round((fraHeight/450)*100),100,50);
+                anyTermButton.setBounds((int) Math.round((fraWidth*0.5)-150+120),(int) Math.round((fraHeight/450)*100),100,50);
+                exactTermButton.setBounds((int) Math.round((fraWidth*0.5)-150+120+120),(int) Math.round((fraHeight/450)*100),100,50);
+
+                maintButton.setBounds((int) Math.round(((fraWidth/625)*25.0)),(int) Math.round((fraHeight/450)*350),125,30);
+                aboutButton.setBounds((int) Math.round(((fraWidth/625)*550.0)-125+((fraWidth/625)*25.0)),(int) Math.round((fraHeight/450)*350),125,30);
+
+                sRContainer.setBounds((int) Math.round((fraWidth/625)*25.0),(int) Math.round((fraHeight/450)*150.0), (int) Math.round((fraWidth/625)*550.0),(int) Math.round((fraHeight/450)*160.0));
+                scrollBar.setPreferredSize(new Dimension((int) Math.round((fraWidth/625)*550.0),(int) Math.round((fraHeight/450)*160.0))); // set ScrollPane size
+
+                searchLabel.setBounds((int) Math.round(((fraWidth/625.0)*25.0)),(int) Math.round((fraHeight/450.0)*50.0),100,30);
+                searchBox.setBounds((int) Math.round(((fraWidth/625)*25.0)+125),(int) Math.round((fraHeight/450)*50),(int) Math.round(((fraWidth/625)*550.0)-2*(fraWidth/625)*100),30);
+                searchButton.setBounds((int) Math.round(((fraWidth/625)*550.0)-100+((fraWidth/625)*25.0)),(int) Math.round((fraHeight/450)*50),100,30);
+
+
+            }
+        });
+
         // Empty label to set window dimensions?
         // ************************************************************* */
         JLabel emptyLabel = new JLabel("");
-        emptyLabel.setPreferredSize(new Dimension(600, 400)); // Sets main search window size
+        emptyLabel.setPreferredSize(new Dimension(625, 450)); // Sets main search window size
         frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
 
         // Display the window.
         // ************************************************************* */
         frame.pack();
         frame.setVisible(true);
-        frame.setSize(625, 450);
+        frame.setMinimumSize(new Dimension(625, 450));
+        //frame.setSize(625, 450);
         frame.setLocationRelativeTo(null);
+
     }
 }
