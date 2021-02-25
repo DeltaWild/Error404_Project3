@@ -4,6 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
+
+
 
 public class SearchGUI {
 
@@ -12,6 +18,7 @@ public class SearchGUI {
     // Frames & Panels
     private JFrame frame;
     private JPanel sRContainer;
+    private JScrollPane scroll;
     // Labels
     private JLabel searchLabel;
     private JLabel indexLabel;
@@ -19,7 +26,7 @@ public class SearchGUI {
     private JLabel emptyLabel;
     // TextFields & TextAreas
     static JTextField searchBox;
-    public JTextArea searchReturn;
+    static JTextArea searchReturn;
     // Radio buttons
     private JRadioButton allTermButton;
     private JRadioButton anyTermButton;
@@ -53,24 +60,27 @@ public class SearchGUI {
         //searchBox.setBounds(100, 50, 350, 30);
         frame.add(searchBox);
 
+
         // Main results field
         // ************************************************************* */
         // Create a container to hold results field
-        JPanel sRContainer = new JPanel();
+        //JPanel sRContainer = new JPanel();
         //sRContainer.setBounds(25, 150, 550, 160); // set the container size and location
-        frame.add(sRContainer);
+        // frame.add(sRContainer);
         // Create a ScrollPane to hold the field
-        JScrollPane scrollBar = new JScrollPane();
+        //JScrollPane scrollBar = new JScrollPane();
         //scrollBar.setPreferredSize(new Dimension(550, 156)); // set ScrollPane size
-        scrollBar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        sRContainer.add(scrollBar);
+        //scrollBar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        //scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        //sRContainer.add(scrollBar);
         // Create search return field
-        JTextArea searchReturn = new JTextArea(""); // return text box
-        searchReturn.setEditable(false);
-        searchReturn.setOpaque(true);
-        scrollBar.setViewportView(searchReturn); // set searchReturn to display in ScrollPane
-        
+        //JTextArea searchReturn = new JTextArea(""); // return text box
+        //searchReturn.setEditable(false);
+        //searchReturn.setOpaque(true);
+        //scrollBar.setViewportView(searchReturn); // set searchReturn to display in ScrollPane
+
+
+
         // Indexed files labels
         // ************************************************************* */
         JLabel indexLabel = new JLabel("Indexed Files: ", SwingConstants.LEFT);
@@ -84,7 +94,7 @@ public class SearchGUI {
         // Radio buttons
         // ************************************************************* */
         JRadioButton allTermButton = new JRadioButton("All Terms");
-       // allTermButton.setBounds(112, 100, 100, 50);
+        // allTermButton.setBounds(112, 100, 100, 50);
         frame.add(allTermButton);
         allTermButton.setSelected(true); // Set default selection
         allTermButton.addActionListener(e -> {
@@ -150,6 +160,19 @@ public class SearchGUI {
                     searchReturn.setText(String.valueOf((testMethod.result)));
                 });
 
+        // Test Search Return
+        // ************************************************************* */
+       JTextArea searchReturn = new JTextArea("");
+        scroll = new JScrollPane(searchReturn, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        frame.add(scroll);
+        frame.pack();
+        frame.setVisible(true);
+        searchReturn.setEditable(true);
+
+
+
+        // Get window size, scale to window
+        // ************************************************************* */
         frame.addComponentListener(new ComponentAdapter() {// Let the window respond to the size change event
             @Override
             public void componentResized(ComponentEvent e) {
@@ -163,28 +186,14 @@ public class SearchGUI {
                 anyTermButton.setBounds((int) Math.round((fraWidth*0.5)-50),100,100,50);
                 exactTermButton.setBounds((int) Math.round((fraWidth*0.5)+75),100,100,50);
 
-
-
                 maintButton.setBounds(25,(int) Math.round((fraHeight-100.0)),125,30);
                 aboutButton.setBounds((int) Math.round(((fraWidth-175))),(int) Math.round((fraHeight-100.0)),125,30);
 
-
-
-
-               // sRContainer.setBounds(25,150, (int) Math.round((fraWidth-25.0)),(int) Math.round(fraHeight-80.0));
-               // scrollBar.setPreferredSize(new Dimension((int) Math.round((fraWidth/650.0)*550),(int) Math.round((fraHeight/450)*156))); // set ScrollPane size
-
-
-
+                scroll.setBounds(25,150, (int) Math.round((fraWidth-75)),(int) Math.round(fraHeight-310));
 
                 searchLabel.setBounds(25,50,100,30);
-                searchBox.setBounds((150),50,(int) Math.round((fraWidth-325.0)),30);//(int) Math.round(((fraWidth/650.0)*550.0)-2*(fraWidth/650.0)*100),30);
+                searchBox.setBounds(150,50,(int) Math.round((fraWidth-325.0)),30);
                 searchButton.setBounds((int) Math.round((fraWidth-150)),50,100,30);
-
-
-
-
-
 
             }
         });
