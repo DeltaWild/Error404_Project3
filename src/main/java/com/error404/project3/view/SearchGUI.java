@@ -2,11 +2,7 @@ package com.error404.project3.view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import java.awt.event.*;
 
 public class SearchGUI {
 
@@ -164,7 +160,7 @@ public class SearchGUI {
 
         // Get window size, scale buttons to window
         // ************************************************************* */
-        frame.addComponentListener(new ComponentAdapter() {// Let the window respond to the size change event
+        frame.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
                 double fraWidth = frame.getWidth();// Get the panel width
