@@ -45,7 +45,7 @@ public class SearchGUI {
 
         // Search label and text field
         // ************************************************************* */
-        JLabel searchLabel = new JLabel("Search:", SwingConstants.CENTER);
+        JLabel searchLabel = new JLabel("Search:", SwingConstants.RIGHT);
         //searchLabel.setBounds(25, 50, 100, 30);
         frame.add(searchLabel);
 
@@ -73,7 +73,7 @@ public class SearchGUI {
         
         // Indexed files labels
         // ************************************************************* */
-        JLabel indexLabel = new JLabel("Indexed Files: ");
+        JLabel indexLabel = new JLabel("Indexed Files: ", SwingConstants.LEFT);
         //indexLabel.setBounds(250, 350, 80, 30);
         frame.add(indexLabel);
 
@@ -156,22 +156,34 @@ public class SearchGUI {
                 double fraWidth = frame.getWidth();// Get the panel width
                 double fraHeight = frame.getHeight();// Get the panel height
 
-                indexLabel.setBounds((int) Math.round((fraWidth/625)*250),(int) Math.round((fraHeight/450)*350),80,30);
-                indexCount.setBounds((int) Math.round((fraWidth/625)*250)+80,(int) Math.round((fraHeight/450)*350),100,30);
+                indexLabel.setBounds((int) Math.round(((fraWidth)*0.5)-90.0),(int) Math.round((fraHeight-100)),80,30);
+                indexCount.setBounds((int) Math.round(((fraWidth)*0.5)-10),(int) Math.round((fraHeight-100.0)),100,30);
 
-                allTermButton.setBounds((int) Math.round((fraWidth*0.5)-150),(int) Math.round((fraHeight/450)*100),100,50);
-                anyTermButton.setBounds((int) Math.round((fraWidth*0.5)-150+120),(int) Math.round((fraHeight/450)*100),100,50);
-                exactTermButton.setBounds((int) Math.round((fraWidth*0.5)-150+120+120),(int) Math.round((fraHeight/450)*100),100,50);
+                allTermButton.setBounds((int) Math.round((fraWidth*0.5)-175),100,100,50);
+                anyTermButton.setBounds((int) Math.round((fraWidth*0.5)-50),100,100,50);
+                exactTermButton.setBounds((int) Math.round((fraWidth*0.5)+75),100,100,50);
 
-                maintButton.setBounds((int) Math.round(((fraWidth/625)*25.0)),(int) Math.round((fraHeight/450)*350),125,30);
-                aboutButton.setBounds((int) Math.round(((fraWidth/625)*550.0)-125+((fraWidth/625)*25.0)),(int) Math.round((fraHeight/450)*350),125,30);
 
-                sRContainer.setBounds((int) Math.round((fraWidth/625)*25.0),(int) Math.round((fraHeight/450)*150.0), (int) Math.round((fraWidth/625)*550.0),(int) Math.round((fraHeight/450)*160.0));
-                scrollBar.setPreferredSize(new Dimension((int) Math.round((fraWidth/625)*550.0),(int) Math.round((fraHeight/450)*160.0))); // set ScrollPane size
 
-                searchLabel.setBounds((int) Math.round(((fraWidth/625.0)*25.0)),(int) Math.round((fraHeight/450.0)*50.0),100,30);
-                searchBox.setBounds((int) Math.round(((fraWidth/625)*25.0)+125),(int) Math.round((fraHeight/450)*50),(int) Math.round(((fraWidth/625)*550.0)-2*(fraWidth/625)*100),30);
-                searchButton.setBounds((int) Math.round(((fraWidth/625)*550.0)-100+((fraWidth/625)*25.0)),(int) Math.round((fraHeight/450)*50),100,30);
+                maintButton.setBounds(25,(int) Math.round((fraHeight-100.0)),125,30);
+                aboutButton.setBounds((int) Math.round(((fraWidth-175))),(int) Math.round((fraHeight-100.0)),125,30);
+
+
+
+
+               // sRContainer.setBounds(25,150, (int) Math.round((fraWidth-25.0)),(int) Math.round(fraHeight-80.0));
+               // scrollBar.setPreferredSize(new Dimension((int) Math.round((fraWidth/650.0)*550),(int) Math.round((fraHeight/450)*156))); // set ScrollPane size
+
+
+
+
+                searchLabel.setBounds(25,50,100,30);
+                searchBox.setBounds((150),50,(int) Math.round((fraWidth-325.0)),30);//(int) Math.round(((fraWidth/650.0)*550.0)-2*(fraWidth/650.0)*100),30);
+                searchButton.setBounds((int) Math.round((fraWidth-150)),50,100,30);
+
+
+
+
 
 
             }
@@ -180,15 +192,15 @@ public class SearchGUI {
         // Empty label to set window dimensions?
         // ************************************************************* */
         JLabel emptyLabel = new JLabel("");
-        emptyLabel.setPreferredSize(new Dimension(625, 450)); // Sets main search window size
+        emptyLabel.setPreferredSize(new Dimension(650, 450)); // Sets main search window size
         frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
 
         // Display the window.
         // ************************************************************* */
         frame.pack();
         frame.setVisible(true);
-        frame.setMinimumSize(new Dimension(625, 450));
-        //frame.setSize(625, 450);
+        frame.setMinimumSize(new Dimension(650, 450));
+        //frame.setSize(650, 450);
         frame.setLocationRelativeTo(null);
 
     }
