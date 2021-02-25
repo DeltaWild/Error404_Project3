@@ -7,9 +7,6 @@ import java.awt.event.ComponentEvent;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
-
-
 
 public class SearchGUI {
 
@@ -18,7 +15,7 @@ public class SearchGUI {
     // Frames & Panels
     private JFrame frame;
     private JPanel sRContainer;
-    private JScrollPane scroll;
+    private JScrollPane scrollBar;
     // Labels
     private JLabel searchLabel;
     private JLabel indexLabel;
@@ -74,12 +71,16 @@ public class SearchGUI {
         //scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         //sRContainer.add(scrollBar);
         // Create search return field
-        //JTextArea searchReturn = new JTextArea(""); // return text box
+        JTextArea searchReturn = new JTextArea(""); // return text box
         //searchReturn.setEditable(false);
-        //searchReturn.setOpaque(true);
+        searchReturn.setOpaque(true);
         //scrollBar.setViewportView(searchReturn); // set searchReturn to display in ScrollPane
 
-
+        scrollBar = new JScrollPane(searchReturn, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        frame.add(scrollBar);
+        frame.pack();
+        frame.setVisible(true);
+        searchReturn.setEditable(false);
 
         // Indexed files labels
         // ************************************************************* */
@@ -160,18 +161,8 @@ public class SearchGUI {
                     searchReturn.setText(String.valueOf((testMethod.result)));
                 });
 
-        // Test Search Return
-        // ************************************************************* */
-       JTextArea searchReturn = new JTextArea("");
-        scroll = new JScrollPane(searchReturn, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        frame.add(scroll);
-        frame.pack();
-        frame.setVisible(true);
-        searchReturn.setEditable(true);
 
-
-
-        // Get window size, scale to window
+        // Get window size, scale buttons to window
         // ************************************************************* */
         frame.addComponentListener(new ComponentAdapter() {// Let the window respond to the size change event
             @Override
@@ -189,7 +180,7 @@ public class SearchGUI {
                 maintButton.setBounds(25,(int) Math.round((fraHeight-100.0)),125,30);
                 aboutButton.setBounds((int) Math.round(((fraWidth-175))),(int) Math.round((fraHeight-100.0)),125,30);
 
-                scroll.setBounds(25,150, (int) Math.round((fraWidth-75)),(int) Math.round(fraHeight-310));
+                scrollBar.setBounds(25,150, (int) Math.round((fraWidth-75)),(int) Math.round(fraHeight-310));
 
                 searchLabel.setBounds(25,50,100,30);
                 searchBox.setBounds(150,50,(int) Math.round((fraWidth-325.0)),30);
