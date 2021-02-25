@@ -8,6 +8,9 @@ public class SearchGUI {
 
     // Components
     // ************************************************************* */
+   private JComponent windowResize;
+
+
     // Frames & Panels
     private JFrame frame;
     private JPanel sRContainer;
@@ -151,18 +154,13 @@ public class SearchGUI {
         JButton searchButton = new JButton("Search"); // Search Button
        // searchButton.setBounds(475, 50, 100, 30);
         frame.add(searchButton);
-        searchButton.addActionListener(e -> {
-                    String searchBoxText = searchBox.getText();
-                    testMethod testing = new testMethod(searchBoxText);
-                    searchReturn.setText(String.valueOf((testMethod.result)));
-                });
-
 
         // Get window size, scale buttons to window
         // ************************************************************* */
         frame.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
+
                 double fraWidth = frame.getWidth();// Get the panel width
                 double fraHeight = frame.getHeight();// Get the panel height
 
@@ -185,11 +183,11 @@ public class SearchGUI {
             }
         });
 
-        // Empty label to set window dimensions?
+        // Creates background
         // ************************************************************* */
-        JLabel emptyLabel = new JLabel("");
-        emptyLabel.setPreferredSize(new Dimension(650, 450)); // Sets main search window size
-        frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
+        JPanel backgroundPanel = new JPanel();
+        backgroundPanel.setSize(650,450);
+        frame.add(backgroundPanel);
 
         // Display the window.
         // ************************************************************* */
