@@ -8,9 +8,6 @@ public class SearchGUI {
 
     // Components
     // ************************************************************* */
-   private JComponent windowResize;
-
-
     // Frames & Panels
     private JFrame frame;
     private JPanel sRContainer;
@@ -70,11 +67,11 @@ public class SearchGUI {
         //scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         //sRContainer.add(scrollBar);
         // Create search return field
-        JTextArea searchReturn = new JTextArea(""); // return text box
         //searchReturn.setEditable(false);
-        searchReturn.setOpaque(true);
         //scrollBar.setViewportView(searchReturn); // set searchReturn to display in ScrollPane
 
+        JTextArea searchReturn = new JTextArea(""); // return text box
+        searchReturn.setOpaque(true);
         scrollBar = new JScrollPane(searchReturn, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         frame.add(scrollBar);
         frame.pack();
@@ -152,8 +149,13 @@ public class SearchGUI {
         // Search button
         // ************************************************************* */
         JButton searchButton = new JButton("Search"); // Search Button
-       // searchButton.setBounds(475, 50, 100, 30);
+        searchButton.setBounds(475, 50, 100, 30);
         frame.add(searchButton);
+        searchButton.addActionListener(e -> {
+            String searchBoxText = searchBox.getText();
+            testMethod testing = new testMethod(searchBoxText);
+            searchReturn.setText(String.valueOf((testMethod.result)));
+        });
 
         // Get window size, scale buttons to window
         // ************************************************************* */
