@@ -9,6 +9,7 @@ public class MaintenanceGUI {
     // ************************************************************* */
     // Frame
     static JFrame frame;
+    static JFrame fileChooser;
     // Labels
     private JLabel maintTitleLabel;
     private JLabel maintIndexLabel;
@@ -18,6 +19,7 @@ public class MaintenanceGUI {
     static JButton maintAddFile;
     private JButton maintRebuild;
     private JButton maintRemoveFile;
+    private JFileChooser addFile;
     // JPanel
     private JPanel mDTContainer;
     // ImageIcon
@@ -49,14 +51,11 @@ public class MaintenanceGUI {
         JButton maintAddFile = new JButton("Add File"); // Add File button
         maintAddFile.setBounds(37, 300, 150, 30);
         frame.add(maintAddFile);
-        maintAddFile.addActionListener(e -> {
-            try {
-                new indexMaint(); // currently stub method
-            }
-            catch (UnsupportedOperationException Exception) {
-                JOptionPane.showMessageDialog(null, "This function is not yet implemented.", "Error", JOptionPane.WARNING_MESSAGE);
-            }
-                });
+        maintAddFile.addActionListener(e -> AddFile.addFile());
+
+
+
+
 
         // Rebuild index button
         // ************************************************************* */
