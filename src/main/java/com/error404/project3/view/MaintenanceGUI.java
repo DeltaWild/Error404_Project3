@@ -2,6 +2,7 @@ package com.error404.project3.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class MaintenanceGUI {
 
@@ -51,7 +52,13 @@ public class MaintenanceGUI {
         JButton maintAddFile = new JButton("Add File"); // Add File button
         maintAddFile.setBounds(37, 300, 150, 30);
         frame.add(maintAddFile);
-        maintAddFile.addActionListener(e -> AddFile.addFile());
+        maintAddFile.addActionListener(e -> {
+            try {
+                AddFile.addFile();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        });
 
 
 
