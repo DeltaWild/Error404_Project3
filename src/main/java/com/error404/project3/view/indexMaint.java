@@ -1,3 +1,9 @@
+/*
+CURRENTLY STUB METHOD
+
+Method for the MaintenanceGUI buttons.
+*/
+
 package com.error404.project3.view;
 
 public class indexMaint {

@@ -1,3 +1,7 @@
+/*
+ENTRY POINT FOR PROGRAM
+*/
+
 package com.error404.project3.view;
 
 public class Main {

@@ -10,20 +10,21 @@ import java.awt.*;
 public class maintDisplayTable extends JPanel {
 
     // Components
-    // ************************************************************* */
-    static JTable maintDisplayTable;
-    private JScrollPane scrollPane;
+    /* ***** */
+    // Table
+    static JTable maintDisplayTable = new JTable(new tableContentsTest());
+    // Scrollpane
+    private JScrollPane scrollPane = new JScrollPane();
+    /* ***** */
 
     public maintDisplayTable() {
+        // Set GridLayout
         super(new GridLayout(1,0));
 
         // Create a ScrollPane to hold the table
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setPreferredSize(new Dimension(550, 196)); // set ScrollPane size
         add(scrollPane);
 
         // Create table
-        JTable maintDisplayTable = new JTable(new tableContentsTest());
         maintDisplayTable.setFillsViewportHeight(true); // use entire container
         maintDisplayTable.setOpaque(true);
         scrollPane.setViewportView(maintDisplayTable); // set maintDisplayTable to display in ScrollPane
