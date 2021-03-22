@@ -1,3 +1,7 @@
+/*
+ENTRY POINT FOR PROGRAM
+*/
+
 package com.error404.project3.view;
 
 public class Main {
@@ -5,7 +9,7 @@ public class Main {
         // Create and show application's GUI
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                SearchGUI.searchGui();
+                new SearchGUI();
             }
         });
     }
