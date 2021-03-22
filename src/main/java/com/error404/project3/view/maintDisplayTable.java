@@ -12,7 +12,7 @@ public class maintDisplayTable extends JPanel {
     // Components
     /* ***** */
     // Table
-    static JTable maintDisplayTable = new JTable(new tableContentsTest());
+    static JTable maintDisplayTable = new JTable(new fileList());
     // Scrollpane
     private JScrollPane scrollPane = new JScrollPane();
     /* ***** */

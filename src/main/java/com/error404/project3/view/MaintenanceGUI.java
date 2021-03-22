@@ -21,7 +21,7 @@ class MaintenanceGUI {
     // Labels
     JLabel maintTitleLabel = new JLabel(); // Title
     JLabel maintIndexLabel = new JLabel(); // Index file count
-    JLabel maintIndexCount = new JLabel(); // Index file count
+    static JLabel maintIndexCount = new JLabel(); // Index file count
     JLabel emptyLabel;
     // Buttons
     JButton maintAddFile = new JButton(); // Add file button

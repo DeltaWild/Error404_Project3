@@ -20,7 +20,7 @@ public class SearchGUI {
     // Labels
     JLabel searchLabel = new JLabel(); // Set label for the search field
     JLabel indexLabel = new JLabel(); // Index counter label
-    JLabel indexCount = new JLabel(); // Index counter number **THIS LABEL TO BE MODIFIED BY METHOD**
+    static JLabel indexCount = new JLabel(); // Index counter number **THIS LABEL TO BE MODIFIED BY METHOD**
     JLabel emptyLabel = new JLabel(); // Empty label
     // TextFields & TextAreas
     static JTextField searchBox = new JTextField(""); // Search input field

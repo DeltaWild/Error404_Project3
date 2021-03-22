@@ -1,17 +1,15 @@
 /*
-CURRENTLY STUB METHOD
-
 Method for the indexed file counter.
 */
 
 package com.error404.project3.view;
 
-public class fileCount {
+class fileCount extends fileList {
 
-    fileCount() {
-        // Stub method for indexed file count
-
-        throw new UnsupportedOperationException();
+    public void fileCount() {
+        int fileCount = getFileCount();
+        MaintenanceGUI.maintIndexCount.setText(String.valueOf(fileCount));
+        SearchGUI.indexCount.setText(String.valueOf(fileCount));
     }
 
 }
