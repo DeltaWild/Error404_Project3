@@ -15,25 +15,27 @@ class MaintenanceGUI {
     // Frame & Panel
     JFrame window = new JFrame(); // Create window
     JPanel frame = new JPanel(); // Create frame for contents to go in
-    JPanel mDTContainer = new JPanel(); // Container to hold results table
     // Table
-    maintDisplayTable mDT = new maintDisplayTable(); // Results table
+    static JTable maintDisplayTable = new JTable(new fileList()); // Create table to hold file data
+    // Scrollpane
+    private JScrollPane scrollPane = new JScrollPane(); // Create scrollPane to make table scrollable
     // Labels
     JLabel maintTitleLabel = new JLabel(); // Title
     JLabel maintIndexLabel = new JLabel(); // Index file count
     static JLabel maintIndexCount = new JLabel(); // Index file count
-    JLabel emptyLabel;
     // Buttons
     JButton maintAddFile = new JButton(); // Add file button
     JButton maintRebuild = new JButton(); // Rebuild index button
     JButton maintRemoveFile = new JButton(); // Remove file button
-    JFileChooser addFile;
     // ImageIcon
     final ImageIcon error404Icon = new ImageIcon("src/main/resources/error404_icon.png");
     // Layout
     GridBagConstraints gridConstraints = new GridBagConstraints(); // Layout management
+    // Screen size variables
+    static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // Get size of user's screen
+    static int screenWidth = screenSize.width;
+    static int screenHeight = screenSize.height;
     /* ***** */
-
 
     public MaintenanceGUI() {
 
@@ -69,10 +71,19 @@ class MaintenanceGUI {
         gridConstraints.weightx = 1.0; // Give horizontal spacing preference to this first
         gridConstraints.weighty = 1.0; // Give vertical spacing preference to this first
         gridConstraints.gridwidth = 3; // Grid cell is 3 wide
-        frame.add(mDTContainer, gridConstraints);
+        frame.add(scrollPane, gridConstraints);
+        scrollPane.setPreferredSize(new Dimension((int)(MaintenanceGUI.screenWidth * 0.4),
+                (int)(MaintenanceGUI.screenHeight * 0.4))); // Set size of scrollPane to 40% of user's screen
 
-        mDTContainer.add(mDT); // Add display table to the container
+        // Create table
+        maintDisplayTable.setRowSelectionAllowed(true); // Allow user to select a row
+        maintDisplayTable.setColumnSelectionAllowed(false); // Do not allow user to select a column
+        maintDisplayTable.setSelectionMode(0); // Single file selection only
+        maintDisplayTable.setFillsViewportHeight(true); // use entire container
+        maintDisplayTable.setAutoResizeMode(4); // Resize all columns
+        scrollPane.setViewportView(maintDisplayTable); // set maintDisplayTable to display in ScrollPane
         /* ***** */
+
 
         // Indexed files labels
         /* ***** */
@@ -111,7 +122,7 @@ class MaintenanceGUI {
         frame.add(maintAddFile, gridConstraints);
         maintAddFile.addActionListener(e -> {
             try {
-                new AddFile();
+                new fileList().AddFile();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
@@ -156,9 +167,11 @@ class MaintenanceGUI {
 
         // Display the window.
         /* ***** */
+        window.revalidate();
         window.pack();
+        window.repaint();
         window.setVisible(true);
-        window.setMinimumSize(new Dimension(650, 450));
+        //window.setMinimumSize(new Dimension(650, 450));
         window.setLocationRelativeTo(null);
         /* ***** */
     }
