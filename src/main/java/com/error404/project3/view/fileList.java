@@ -96,6 +96,7 @@ class fileList extends AbstractTableModel {
                         fileItem file = new fileItem(fileName, fileSize, fileModDate);
                         fileInfo.add(file);
                         this.fireTableDataChanged();
+                        MaintenanceGUI.window.repaint();
                     }
                 }
                 catch (IOException ioException) {

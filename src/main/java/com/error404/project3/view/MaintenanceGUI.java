@@ -13,7 +13,7 @@ class MaintenanceGUI {
     // Components
     /* ***** */
     // Frame & Panel
-    JFrame window = new JFrame(); // Create window
+    static JFrame window = new JFrame(); // Create window
     JPanel frame = new JPanel(); // Create frame for contents to go in
     // Table
     static JTable maintDisplayTable = new JTable(new fileList()); // Create table to hold file data
