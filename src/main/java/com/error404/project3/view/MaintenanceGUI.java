@@ -81,6 +81,7 @@ class MaintenanceGUI {
         maintDisplayTable.setSelectionMode(0); // Single file selection only
         maintDisplayTable.setFillsViewportHeight(true); // use entire container
         maintDisplayTable.setAutoResizeMode(4); // Resize all columns
+        maintDisplayTable.setDefaultRenderer(Long.class, new DateRenderer());
         scrollPane.setViewportView(maintDisplayTable); // set maintDisplayTable to display in ScrollPane
         /* ***** */
 
