@@ -24,4 +24,3 @@ class DateRenderer extends DefaultTableCellRenderer {
         return comp;
     }
 }
-/*  */
