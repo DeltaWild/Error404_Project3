@@ -11,6 +11,7 @@ import java.awt.*;
 public class SearchGUI {
 
     // Components
+    static int count = 0;
     /* ***** */
     // Frames & Panels
     JFrame window = new JFrame(); // Create window
@@ -101,7 +102,7 @@ public class SearchGUI {
         gridConstraints.fill = GridBagConstraints.NONE;
         gridConstraints.gridx = 1; // Grid position is 1,1
         gridConstraints.gridy = 1;
-        gridConstraints.weightx = 0.0; // Give no horizontal spacing preference to this (do not resize with window)
+        gridConstraints.weightx = 0.5; // Give no horizontal spacing preference to this (do not resize with window)
         frame.add(allTermButton, gridConstraints);
         allTermButton.addActionListener(e -> {
             try {
@@ -116,7 +117,7 @@ public class SearchGUI {
         gridConstraints.fill = GridBagConstraints.NONE;
         gridConstraints.gridx = 2; // Grid position is 2,1
         gridConstraints.gridy = 1;
-        gridConstraints.weightx = 0.0; // Give no horizontal spacing preference to this (do not resize with window)
+        gridConstraints.weightx = 0.5; // Give no horizontal spacing preference to this (do not resize with window)
         frame.add(anyTermButton, gridConstraints);
         anyTermButton.addActionListener(e -> {
             try {
@@ -128,10 +129,10 @@ public class SearchGUI {
         });
         // Exact term
         exactTermButton.setText("Exact Term");
-        gridConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridConstraints.fill = GridBagConstraints.NONE;
         gridConstraints.gridx = 3; // Grid position 3,1
         gridConstraints.gridy = 1;
-        gridConstraints.weightx = 1; // Give horizontal spacing preference to this first
+        gridConstraints.weightx = 0.5; // Give horizontal spacing preference to this first
         frame.add(exactTermButton, gridConstraints);
         exactTermButton.addActionListener(e -> {
             try {
@@ -182,24 +183,28 @@ public class SearchGUI {
         maintButton.addActionListener(e -> new MaintenanceGUI());
 
         // Index descriptive text
-        indexLabel.setText("Indexed Files: ");
-        indexLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        gridConstraints.fill = GridBagConstraints.HORIZONTAL;
+        indexLabel.setText("Indexed Files: " + count);
+        //indexLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        gridConstraints.fill = GridBagConstraints.CENTER;
         gridConstraints.gridx = 1; // Grid position 1,3
         gridConstraints.gridy = 3;
         gridConstraints.weightx = 0.0; // Give no horizontal spacing preference to this (do not resize with window)
-        gridConstraints.gridwidth = 2; // Grid cell is 2 wide
+        gridConstraints.gridwidth = 3; // Grid cell is 2 wide
         gridConstraints.insets = new Insets(0,10,0,0);
         frame.add(indexLabel, gridConstraints);
+
+        /*
         // Index return text
         indexCount.setText("0");
+        //indexLabel.setHorizontalAlignment(SwingConstants.LEFT);
         gridConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridConstraints.gridx = 3; // Grid position 2,3
         gridConstraints.gridy = 3;
         gridConstraints.weightx = 0.0; // Give no horizontal spacing preference to this (do not resize with window)
-        gridConstraints.gridwidth = 2; // Grid cell is 2 wide
+        gridConstraints.gridwidth = 1; // Grid cell is 2 wide
         gridConstraints.insets = new Insets(0,0,0,0);
         frame.add(indexCount, gridConstraints);
+        */
 
         // About button
         aboutButton.setText("About");
