@@ -40,6 +40,9 @@ public class SearchGUI {
     GridBagConstraints gridConstraints = new GridBagConstraints(); // Layout management
     /* ***** */
 
+    /* ***** */
+    static long idNumber; // Increments the file number as it is added
+
     public SearchGUI() {
 
         // Set up frame

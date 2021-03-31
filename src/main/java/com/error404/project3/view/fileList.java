@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 class fileList extends AbstractTableModel {
 
@@ -33,6 +34,7 @@ class fileList extends AbstractTableModel {
             "Last Modified Date"
     };
     fileList listing; // Initialize fileList
+    static long fileID; // *** May not need? ***
     static String fileName = null; // Variable to hold the file's name
     static long fileSize = 0; // Variable to hold the file's size
     static long fileModDate = 0; // Variable to hold file's last modified date
@@ -74,7 +76,7 @@ class fileList extends AbstractTableModel {
 
     // Add File Functionality
     /* ***** */
-    public static ArrayList<fileItem> fileInfo = new ArrayList(); // Create array to hold file info
+    public static List<fileItem> fileInfo = new ArrayList<>(); // Create array to hold file info
 
     public void AddFile() throws IOException {
         // Set up fileChooser
@@ -89,11 +91,12 @@ class fileList extends AbstractTableModel {
             if (addFile.exists() && addFile.isFile() && addFile.canRead()) { // Test that the file exists, is a legal
                 // file, and can be read by the program.
                 try {
+                    fileID = (SearchGUI.idNumber++);
                     fileName = addFile.getCanonicalPath(); // Try to get the file's OS dependent, absolute path
                     fileSize = addFile.length(); // Try to get the file's size
                     fileModDate = addFile.lastModified(); // Try to get the file's last modified date
                     if (!hasFile(fileName)) { // Only add the file if it is not a duplicate
-                        fileItem file = new fileItem(fileName, fileSize, fileModDate);
+                        fileItem file = new fileItem(fileID, fileName, fileSize, fileModDate);
                         fileInfo.add(file);
                         this.fireTableDataChanged();
                         MaintenanceGUI.window.repaint();
