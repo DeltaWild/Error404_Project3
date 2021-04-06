@@ -19,7 +19,7 @@ public class buildIndex {
             bw.write(file.fileID + "\t" +
                     file.fileName + "\t" +
                     file.fileSize + "\t" +
-                    file.fileModDate);
+                    file.fileModDate + "\n");
         }
         bw.close();
         fw.close();
