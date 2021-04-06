@@ -7,8 +7,11 @@ package com.error404.project3.view;
 import com.error404.project4.model.fileItem;
 
 import javax.swing.*;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableModel;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,10 +43,23 @@ class fileList extends AbstractTableModel {
     static long fileModDate = 0; // Variable to hold file's last modified date
     /* ***** */
 
-    // Constructor & utility methods
+    // Constructor & table listener
     /* ***** */
     fileList() {
         listing = this;
+
+        this.addTableModelListener(new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                if (e.getType() == TableModelEvent.UPDATE) {
+                    try {
+                        new buildIndex();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     // Possible future usage...
@@ -76,7 +92,7 @@ class fileList extends AbstractTableModel {
 
     // Add File Functionality
     /* ***** */
-    public static List<fileItem> fileInfo = new ArrayList<>(); // Create array to hold file info
+    public static List<fileItem> fileInfo = new ArrayList<>(); // LIST OF FILES
 
     public void AddFile() throws IOException {
         // Set up fileChooser

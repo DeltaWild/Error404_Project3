@@ -39,15 +39,20 @@ public class fileItem implements Comparable<fileItem>{
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.fileID, this.fileName, this.fileSize, this.fileModDate);
+        return Objects.hash(this.fileID);
     }
 
     @Override
     public String toString() {
-        return "fileItem{" + "fileName='" + this.fileName + '\'' + '}';
+        return "fileItem{" +
+                "fileID=" + fileID +
+                ", fileName='" + fileName + '\'' +
+                ", fileSize=" + fileSize +
+                ", fileModDate=" + fileModDate +
+                '}';
     }
 
-    @Override // Need to provide comparison for equals, etc. operations
+    @Override
     public int compareTo(fileItem file2) {
         return (int)(this.fileID - file2.fileID);
     }

@@ -18,7 +18,7 @@ class MaintenanceGUI {
     // Table
     static JTable maintDisplayTable = new JTable(new fileList()); // Create table to hold file data
     // Scrollpane
-    private JScrollPane scrollPane = new JScrollPane(); // Create scrollPane to make table scrollable
+    private final JScrollPane scrollPane = new JScrollPane(); // Create scrollPane to make table scrollable
     // Labels
     JLabel maintTitleLabel = new JLabel(); // Title
     JLabel maintIndexLabel = new JLabel(); // Index file count
