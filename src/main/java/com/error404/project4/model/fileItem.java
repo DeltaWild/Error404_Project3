@@ -1,8 +1,9 @@
 package com.error404.project4.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class fileItem implements Comparable<fileItem>{
+public class fileItem implements Comparable<fileItem>, Serializable {
     public final long fileID;
     public final String fileName;
     public final long fileSize;

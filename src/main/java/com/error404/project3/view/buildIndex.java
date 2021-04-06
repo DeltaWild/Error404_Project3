@@ -4,7 +4,6 @@ import com.error404.project4.model.fileItem;
 
 import java.awt.*;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 
 import static com.error404.project3.view.MaintenanceGUI.maintDisplayTable;
 import static com.error404.project3.view.fileList.fileInfo;
@@ -14,12 +13,11 @@ public class buildIndex {
         maintDisplayTable.setBackground(Color.BLUE);
         MaintenanceGUI.window.repaint();
         FileOutputStream fos = new FileOutputStream("engine.txt");
-        OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
         for (fileItem file : fileInfo) {
-            osw.write(file);
-            osw.flush();
+            oos.writeObject(file);
         }
-        osw.close();
+        oos.close();
         fos.close();
     }
 }
