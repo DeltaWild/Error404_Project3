@@ -4,6 +4,7 @@ File utilities methods, override methods for AbstractTableModel.
 
 package com.error404.project3.view;
 
+import com.error404.project4.model.buildIndex;
 import com.error404.project4.model.fileItem;
 
 import javax.swing.*;
@@ -11,14 +12,13 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableModel;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-class fileList extends AbstractTableModel {
+public class fileList extends AbstractTableModel {
 
     // Components
     /* ***** */
