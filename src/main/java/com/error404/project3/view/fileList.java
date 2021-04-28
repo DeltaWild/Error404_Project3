@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.prefs.Preferences;
 
 public class fileList extends AbstractTableModel {
 
@@ -41,6 +42,9 @@ public class fileList extends AbstractTableModel {
     static String fileName = null; // Variable to hold the file's name
     static long fileSize = 0; // Variable to hold the file's size
     static long fileModDate = 0; // Variable to hold file's last modified date
+    Preferences pref = Preferences.userRoot(); // Get user root folder
+    final static String PATH = "LAST_USED_DIRECTORY";
+    String path = pref.get(PATH, ""); // Holds path of last file or empty string if not yet set
     /* ***** */
 
     // Constructor & table listener
@@ -107,6 +111,7 @@ public class fileList extends AbstractTableModel {
             if (addFile.exists() && addFile.isFile() && addFile.canRead()) { // Test that the file exists, is a legal
                 // file, and can be read by the program.
                 try {
+                    fileChooser.setCurrentDirectory(new File(PATH));
                     fileID = (SearchGUI.idNumber++);
                     fileName = addFile.getCanonicalPath(); // Try to get the file's OS dependent, absolute path
                     fileSize = addFile.length(); // Try to get the file's size
@@ -117,6 +122,7 @@ public class fileList extends AbstractTableModel {
                         this.fireTableDataChanged();
                         MaintenanceGUI.window.repaint();
                     }
+                    pref.put(PATH, addFile.getCanonicalPath());
                 }
                 catch (IOException ioException) {
                     ioException.printStackTrace();
