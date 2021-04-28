@@ -16,6 +16,10 @@ public class fileItem implements Comparable<fileItem>, Serializable {
         this.fileModDate = fileModDate;
     }
 
+    public long getFileID() {
+        return fileID;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -45,12 +49,7 @@ public class fileItem implements Comparable<fileItem>, Serializable {
 
     @Override
     public String toString() {
-        return "fileItem{" +
-                "fileID=" + fileID +
-                ", fileName='" + fileName + '\'' +
-                ", fileSize=" + fileSize +
-                ", fileModDate=" + fileModDate +
-                '}';
+        return "[File = " + fileName + " ]";
     }
 
     @Override
