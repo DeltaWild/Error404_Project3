@@ -27,9 +27,8 @@ public class posPair implements Comparable<posPair>, Serializable {
 
     @Override
     public String toString() {
-        return "fileItem{" +
-                "fileID=" + fid +
-                ", fileName='" + pos +
+        return "{" + fid +
+                ", " + pos +
                 '}';
     }
 

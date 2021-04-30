@@ -132,18 +132,6 @@ public class fileList extends AbstractTableModel {
     }
     /* ***** */
 
-    public Long getFileID(String fileName) {
-        Iterator iter1 = fileInfo.iterator();
-
-        while(iter1.hasNext()) {
-            fileItem file = (fileItem)iter1.next();
-            if (file.fileName.equals(fileName)) {
-                return file.fileID;
-            }
-        }
-        return null;
-    }
-
     // Override methods for AbstractTableModel
     /* ***** */
 

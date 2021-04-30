@@ -38,7 +38,7 @@ public class buildIndex {
 
     public void wordsInDocument(fileItem file) throws IOException {
 
-        long docID = new fileList().getFileID(file.fileName);
+        long docID = file.getFileID();
         Scanner in = new Scanner(new File(file.fileName)); // Scanner to read file
         int position = 0;
 
