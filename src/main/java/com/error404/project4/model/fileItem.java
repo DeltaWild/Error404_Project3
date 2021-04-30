@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class fileItem implements Comparable<fileItem>, Serializable {
     public final long fileID;
+
     public final String fileName;
     public final long fileSize;
     public long fileModDate;
@@ -17,7 +18,19 @@ public class fileItem implements Comparable<fileItem>, Serializable {
     }
 
     public long getFileID() {
-        return fileID;
+        return this.fileID;
+    }
+
+    public String getFileName() {
+        return this.fileName;
+    }
+
+    public long getFileSize() {
+        return this.fileSize;
+    }
+
+    public long getFileModDate() {
+        return this.fileModDate;
     }
 
     @Override

@@ -3,19 +3,27 @@ package com.error404.project3.view;
 import com.error404.project4.model.fileItem;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class fileListTest {
 
+    @Mock
+    fileItem fileItemMock;
+
     @Test
-    @DisplayName("Adding file properly appends file object to list.")
+    @DisplayName("Adding file properly appends file object to list with correct file ID.")
     void addFile() {
-        fileItem file = new fileItem(0L, "test.txt", 0L, 0L);
-        fileList.fileInfo.add(file);
+        when(fileItemMock.getFileID())
+                .thenReturn(SearchGUI.idNumber++);
 
-        long testID = file.getFileID();
+        fileList.fileInfo.add(fileItemMock);
 
-        assertEquals(0L, testID, "Test ID should be 0L.");
+        assertEquals(0, fileItemMock.getFileID(), "Test ID should be 0.");
     }
 }
